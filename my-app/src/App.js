@@ -1,5 +1,5 @@
-import Topbar from "./components/topbar/topbar";
 import Login from "./components/login/login";
+import Main from "./components/main/main";
 import "./css/topbar.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -12,6 +12,7 @@ function App() {
       </div>
       
     <Route path="/Login" component={Login} />
+    <Route path="/" component={Main} />
     </Router>
   );
 }
