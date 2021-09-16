@@ -1,9 +1,15 @@
-import "./topbar.scss"
-
-export default function Topbar() {
+function Login() {
     return (
-        <div className="topbar">
-            topbar
-        </div>
-    )
+        <>
+            <div class="navbar">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <a class="navbar-brand" href="#">Navbar</a>
+                    </nav>
+                </div>
+            </div>
+        </>
+    );
 }
+
+export default Login;
