@@ -6,13 +6,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 function App() {
   return (
     <Router>
-      <div className="App">
-        <header className="App-header">
-        </header>
-      </div>
-      
-    <Route path="/Login" component={Login} />
-    <Route path="/" component={Main} />
+    <Route path="/login" component={Login} />
+    <Route path="/home" component={Main} />
     </Router>
   );
 }

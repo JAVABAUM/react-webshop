@@ -2,17 +2,17 @@ import "../login/login.css"
 
 function Main(){
     return(
-        <div class="welcome-container">
-    <div class="row welcome-row">
-      <div class="col-sm">
+        <div className="welcome-container">
+    <div className="row welcome-row">
+      <div className="col-sm">
           WELCOME TO THE JAVABAUM WEBSHOP
       </div>
-      <div class="col-1">
-        <div class="hr"></div>
+      <div className="col-1">
+        <div className="hr"></div>
       </div>
-      <div class="col-sm button-container">
+      <div className="col-sm button-container">
           <a href="/login">
-              <button class="main-button">ENTER</button>
+              <button className="main-button">ENTER</button>
           </a>
       </div>
     </div>
