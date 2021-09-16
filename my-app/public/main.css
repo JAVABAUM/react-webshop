@@ -1,0 +1,40 @@
+.welcome-container {
+  width: 90vw;
+  margin: 5%;
+  height: 80vh;
+  border: 2px solid black;
+  text-align: center;
+  justify-content: center;
+  font-size: x-large;
+  overflow: hidden;
+}
+
+.row{
+  margin-top: 15%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.hr {
+  border-left: 2px solid black;
+  height: 25vh;
+  width: 2px;
+}
+.main-button {
+  background-color: transparent;
+  border: 2px solid black;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.col-sm{
+  margin:auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .hr{
+    display: none;
+  }
+}
