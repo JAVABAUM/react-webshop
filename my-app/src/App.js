@@ -1,4 +1,5 @@
 import './App.css';
+import Topbar from "./components/topbar/topbar";
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
         <a>
           JAVABAUM
         </a>
+        <Topbar/>
       </header>
     </div>
   );
