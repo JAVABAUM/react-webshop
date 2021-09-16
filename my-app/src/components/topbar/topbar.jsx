@@ -1,4 +1,6 @@
-<style href ="my-app\src\components\topbar\topbar.scss"></style>
+import "./topbar.scss"
+
+<style href="/my-app/src/components/topbar/topbar.scss"></style>
 
 
 function Login() {
