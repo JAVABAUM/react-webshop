@@ -1,5 +1,6 @@
 import './App.css';
 import Topbar from "./components/topbar/topbar";
+import Footer from "./components/footer/footer";
 
 function App() {
   return (
@@ -9,6 +10,8 @@ function App() {
           JAVABAUM
         </a>
         <Topbar/>
+        <Footer/>
+
       </header>
     </div>
   );
