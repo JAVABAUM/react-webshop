@@ -6,9 +6,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Topbar/>
-        <a>
-          JAVABAUM
-        </a>  
       </header>
     </div>
   );
