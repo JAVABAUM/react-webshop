@@ -1,0 +1,34 @@
+.shop-container{    
+  width: 90vw;
+  margin: 5%;
+  height: 80vh;
+  border: 2px solid black;
+  font-size: x-large;
+  text-align: left;
+  overflow: hidden;
+}
+
+.title{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.product{
+    border: 2px solid black;
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    color: black;
+}
+
+.product-link{
+    color: black;
+    text-decoration: none;
+    text-decoration-color: white;
+}
+
+.product-img{
+    max-height: 200px;
+    width: auto;
+}

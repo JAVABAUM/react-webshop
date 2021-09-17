@@ -1,5 +1,5 @@
 import "./login.css";
-import{ getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 
 
@@ -10,7 +10,7 @@ function Login() {
         <div className="login-row row">
           <div className="col-6">
             <h2>LOGIN</h2>
-            <form className="loginForm" onSubmit={(e)=> login(e)}>
+            <form className="loginForm" onSubmit={(e) => login(e)}>
               <div className="mb-3">
                 <label htmlFor="login-mail" className="form-label">
                   Email
@@ -35,7 +35,7 @@ function Login() {
           </div>
           <div className="col-6">
             <h2>SIGNUP</h2>
-            <form id="signupForm">
+            <form id="signupForm" onSubmit={(e) => signup(e)}>
               <div className="mb-3">
                 <label htmlFor="signup-mail" className="form-label">
                   Email
@@ -70,7 +70,7 @@ function Login() {
           </div>
         </div>
       </div>
-      
+
     </>
   );
 }
@@ -78,25 +78,7 @@ function Login() {
 export default Login;
 
 function login(e) {
-  e.preventDefault();
-  const auth = getAuth();
-  var mail = document.getElementById("login-mail").value;
-  var password = document.getElementById("login-password").value;
-  
-  signInWithEmailAndPassword(mail,password).then((cred)=> {
-    var user = cred.user;
-    console.log(user);
-  })
-}
 
-function signup(e) {
-  e.preventDefault();
-  firebaseInit();    
-  var signupForm = document.getElementById("#signupForm");
-  console.log(signupForm);
-}
-
-function firebaseInit(){
   const firebaseConfig = {
     apiKey: "AIzaSyAvxvEtENC1DGh00_tIv6K0Wg8qZ1rMlb4",
     authDomain: "webshop-f0863.firebaseapp.com",
@@ -105,6 +87,44 @@ function firebaseInit(){
     messagingSenderId: "727095280293",
     appId: "1:727095280293:web:718b2c3fffc99ec311c34c"
   };
-  
+
   const app = initializeApp(firebaseConfig);
+
+  e.preventDefault();
+  const auth = getAuth();
+  var mail = document.getElementById("login-mail").value;
+  var password = document.getElementById("login-password").value;
+
+  signInWithEmailAndPassword(auth, mail, password).then((cred) => {
+    console.log(cred.user);
+    window.location.replace("shop");
+  }).catch((err) => {
+    console.log(err);
+  })
+}
+
+function signup(e) {
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAvxvEtENC1DGh00_tIv6K0Wg8qZ1rMlb4",
+    authDomain: "webshop-f0863.firebaseapp.com",
+    projectId: "webshop-f0863",
+    storageBucket: "webshop-f0863.appspot.com",
+    messagingSenderId: "727095280293",
+    appId: "1:727095280293:web:718b2c3fffc99ec311c34c"
+  };
+
+  const app = initializeApp(firebaseConfig);
+
+  e.preventDefault();
+  const auth = getAuth();
+  var mail = document.getElementById("signup-mail").value;
+  var password = document.getElementById("signup-password").value;
+
+  createUserWithEmailAndPassword(auth, mail, password).then((cred) => {
+    console.log(cred.user);
+    window.location.replace("shop");
+  }).catch((err)=>{
+    console.log(err);
+  })
 }
