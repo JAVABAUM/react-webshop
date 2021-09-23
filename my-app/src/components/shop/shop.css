@@ -5,7 +5,7 @@
   border: 2px solid black;
   font-size: x-large;
   text-align: left;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .title{
