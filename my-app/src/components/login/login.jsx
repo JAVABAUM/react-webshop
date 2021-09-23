@@ -1,11 +1,17 @@
 import "./login.css";
+import "../shop/shop";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 
 function Login() {
   return (
     <>
+      {
+        getAuth().currentUser ?
+          <Redirect to="/user" /> : null
+      }
       <div className="login-container">
         <div className="login-row row">
           <div className="col-6">
@@ -78,18 +84,6 @@ function Login() {
 export default Login;
 
 function login(e) {
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyAvxvEtENC1DGh00_tIv6K0Wg8qZ1rMlb4",
-    authDomain: "webshop-f0863.firebaseapp.com",
-    projectId: "webshop-f0863",
-    storageBucket: "webshop-f0863.appspot.com",
-    messagingSenderId: "727095280293",
-    appId: "1:727095280293:web:718b2c3fffc99ec311c34c"
-  };
-
-  const app = initializeApp(firebaseConfig);
-
   e.preventDefault();
   const auth = getAuth();
   var mail = document.getElementById("login-mail").value;
@@ -124,7 +118,7 @@ function signup(e) {
   createUserWithEmailAndPassword(auth, mail, password).then((cred) => {
     console.log(cred.user);
     window.location.replace("shop");
-  }).catch((err)=>{
+  }).catch((err) => {
     console.log(err);
   })
 }
