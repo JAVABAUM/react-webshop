@@ -15,7 +15,7 @@ export default function Shop(props) {
                 <div className="product-container">
                     {productList.map(product => (
                         <Product title={product.title}></Product>
-                        
+
                     ))}
                     
                 </div>
