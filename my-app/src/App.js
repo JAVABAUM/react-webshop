@@ -1,13 +1,16 @@
-import Topbar from "./components/topbar/topbar";
-import './css/topbar.css';
+import Login from "./components/login/login";
+import Main from "./components/main/main";
+import Shop from "./components/shop/shop";
+import "./css/topbar.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Topbar/>
-      </header>
-    </div>
+    <Router>
+    <Route path="/login" component={Login} />
+    <Route path="/home" component={Main} />
+    <Route path="/shop" component={Shop} />
+    </Router>
   );
 }
 

@@ -1,5 +1,4 @@
-  
-@import "../../global.scss";
+@import "/my-app/src/css/global.scss";
 
 .topbar {
   background-color: black;
@@ -8,4 +7,10 @@
   position: fixed;
   top: 0;
   z-index: 2;
+}
+
+#icon{
+  width: 50px;
+  height: auto;
+
 }

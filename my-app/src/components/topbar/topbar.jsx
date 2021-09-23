@@ -1,3 +1,8 @@
+import "./topbar.scss"
+
+<style href="/my-app/src/components/topbar/topbar.scss"></style>
+
+
 function Login() {
     return (
         <>
@@ -19,7 +24,15 @@ function Login() {
                                 <a class="nav-link" href="#">About</a>
                             </li>
 
-                            
+                            <li class="nav-item">
+                                <img id="icon" src="/media/images/user.png"></img>
+                            </li>
+
+                            <li class="nav-item">
+                                <img id="icon" src="/media/images/shopping-cart.png"></img>
+                            </li>
+
+
 
                         </ul>
                     </div>
