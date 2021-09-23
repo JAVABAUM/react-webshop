@@ -38,7 +38,7 @@ function getProductList() {
     const db = getFirestore(app);
 
     //return getList(db);
-    return [{title: "title a"}, {title: "title b"}]
+    return [{ title: "title a" }, { title: "title b" }, { title: "title c" }]
 }
 
 async function getList(db) {
@@ -54,4 +54,17 @@ function getImage() {
         console.log(url);
         return url;
     })
+}
+
+function getData() {
+    const dbRef = ref(getFirestore());
+    getFirestore(dbRef, `products/B2gnqPDuDEJa5PvervxA`).then((snapshot) => {
+        if (snapshot.exists()) {
+            console.log(snapshot.val());
+        } else {
+            console.log("No data available");
+        }
+    }).catch((error) => {
+        console.error(error);
+    });
 }
