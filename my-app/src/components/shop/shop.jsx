@@ -1,23 +1,20 @@
 import React from "react";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
-import { initializeApp, firestore } from "firebase/app";
-import { collection, getDocs, setDoc, getFirestore } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+import { collection, doc, getDocs, query, getFirestore } from "firebase/firestore";
 
 
 import './shop.css'
 import Product from './product'
 
-export default function Shop(props) {
+export default function Shop() {
+
     return (
         <>
             <div className="shop-container">
                 <h2 className="title">Products</h2>
-                <div className="product-container">
-                    {productList.map(product => (
-                        <Product title={product.title}></Product>
-
-                    ))}
-                    
+                <div className="product-container" id="product-container">
+                    {getList()}
                 </div>
                 
             </div>
@@ -25,10 +22,7 @@ export default function Shop(props) {
     );
 }
 
-let productList = getProductList();
-
-function getProductList() {
-
+async function getProductList() {
     const firebaseConfig = {
         apiKey: "AIzaSyAvxvEtENC1DGh00_tIv6K0Wg8qZ1rMlb4",
         authDomain: "webshop-f0863.firebaseapp.com",
@@ -40,43 +34,37 @@ function getProductList() {
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    /*var leadsRef = db('products');
-    leadsRef.on('value', function (snapshot) {
-        // snapshot.forEach(function(childSnapshot) {
-        var childData = snapshot.node_.children_.root_.value.value_;
-        console.log("snapshot.node_.children_.root_.value.value_: ", snapshot.node_.children_.root_.value.value_)
-        // });
+    let list = [];
+    const q = query(collection(db, "products"));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((product) => {
+        list.push(
+            {
+                title: product.data().title,
+                image: product.data().image_src,
+                description: product.data().description
+            });
     });
-
-    //return getList(db);*/
-    return [{ title: "title a" }, { title: "title b" }, { title: "title c" }]
+    return list;
 }
 
-async function getList(db) {
-    const col = collection(db, 'products');
-    const snapshot = await getDocs(col);
-    return snapshot.docs.map(doc => doc.data());
-}
+function getList() {
+    let productlist = getProductList();
+    let final = [];
+    productlist.then((list) => {
+        list.forEach((product) => {
+            final.push(product);
+        })
+    }).finally((e) => {
+        final.forEach((element) => {
+            const div = document.createElement(`div`);
+            const link = document.createElement(`a`);
+            const title = document.createElement(`h3`);
+            const img = document.createElement(`img`);
 
-function getImage() {
-    const storage = getStorage();
-    const path = ref(storage, '/placeholder.jpg');
-    getDownloadURL(path).then((url) => {
-        console.log(url);
-        return url;
+            title.innerHTML = (`${element.title}`);
+            div.className = "product"
+            document.getElementById("product-container").appendChild(div)
+        })
     })
-}
-
-function getData() {
-    
-    const dbRef = ref(getFirestore());
-    getFirestore(dbRef, `products/B2gnqPDuDEJa5PvervxA`).then((snapshot) => {
-        if (snapshot.exists()) {
-            console.log(snapshot.val());
-        } else {
-            console.log("No data available");
-        }
-    }).catch((error) => {
-        console.error(error);
-    });
 }
