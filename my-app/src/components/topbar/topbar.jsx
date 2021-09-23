@@ -1,9 +1,6 @@
 import "./topbar.scss"
 
-<style href="/my-app/src/components/topbar/topbar.scss"></style>
-
-
-function Login() {
+function Topbar() {
     return (
         <>
             <div class="navbar">
@@ -31,9 +28,6 @@ function Login() {
                             <li class="nav-item">
                                 <img id="icon" src="/media/images/shopping-cart.png"></img>
                             </li>
-
-
-
                         </ul>
                     </div>
                 </nav>
@@ -42,4 +36,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default Topbar;
