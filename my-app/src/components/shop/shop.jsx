@@ -15,8 +15,11 @@ export default function Shop(props) {
                 <div className="product-container">
                     {productList.map(product => (
                         <Product title={product.title}></Product>
+                        
                     ))}
+                    
                 </div>
+                
             </div>
         </>
     );
@@ -37,7 +40,15 @@ function getProductList() {
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    //return getList(db);
+    /*var leadsRef = db('products');
+    leadsRef.on('value', function (snapshot) {
+        // snapshot.forEach(function(childSnapshot) {
+        var childData = snapshot.node_.children_.root_.value.value_;
+        console.log("snapshot.node_.children_.root_.value.value_: ", snapshot.node_.children_.root_.value.value_)
+        // });
+    });
+
+    //return getList(db);*/
     return [{ title: "title a" }, { title: "title b" }, { title: "title c" }]
 }
 
@@ -57,6 +68,7 @@ function getImage() {
 }
 
 function getData() {
+    
     const dbRef = ref(getFirestore());
     getFirestore(dbRef, `products/B2gnqPDuDEJa5PvervxA`).then((snapshot) => {
         if (snapshot.exists()) {
