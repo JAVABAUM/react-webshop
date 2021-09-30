@@ -1,0 +1,23 @@
+#icon {
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+  float: right;
+  clear: right;
+}
+
+#leftmargin {
+  margin-left: 10px;
+  color: black;
+}
+
+.headerIcon {
+  margin-right: 25px;
+}
+
+.navbar {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  width: 90vw;
+}
