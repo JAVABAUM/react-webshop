@@ -1,5 +1,6 @@
 import React from "react";
 import Topbar from "../topbar/topbar";
+import Footer from "../footer/footer";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { initializeApp } from "firebase/app";
 import { collection, doc, getDocs, query, getFirestore } from "firebase/firestore";
@@ -22,6 +23,7 @@ export default function Shop() {
                 </div>
 
             </div>
+            <Footer></Footer>
         </>
     );
 }
