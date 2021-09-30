@@ -5,6 +5,7 @@ import { collection, getDocs, query, getFirestore } from "firebase/firestore";
 import Topbar from '../topbar/topbar'
 import placeholder from './placeholder.jpg';
 import './shop.css';
+import Footer from "../footer/footer";
 
 export default function Shop() {
     return (
@@ -16,6 +17,7 @@ export default function Shop() {
 
                 </div>
             </div>
+            <Footer></Footer>
         </>
     );
 }

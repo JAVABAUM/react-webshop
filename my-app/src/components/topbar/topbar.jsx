@@ -1,4 +1,6 @@
 import "./topbar.css"
+import "../shop/cart"
+import { Link } from "react-router-dom";
 
 function Topbar() {
     return (
@@ -6,6 +8,7 @@ function Topbar() {
             <div class="navbar">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Shop</a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -13,10 +16,7 @@ function Topbar() {
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Shop</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">About</a>
+                                     <a class="nav-link" href="/about">About</a>
                                 </li>
                             </ul>
                         </div>
@@ -34,10 +34,10 @@ function Topbar() {
                         </div>
 
                         <div id="iconDiv">
-                            <a href="#">
+                            <a href="/cart">
                                 <div class="headerIcon">
                                     <img id="icon" src="/media/images/shopping-cart.png"></img>
-                                    <a id="leftmargin" href="#">Cart</a>
+                                    <a id="leftmargin" href="/cart">Cart</a>
                                 </div>
                             </a>
 
