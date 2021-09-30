@@ -6,12 +6,10 @@ import Topbar from '../topbar/topbar'
 import placeholder from './placeholder.jpg';
 import './shop.css';
 
-
 export default function Shop() {
-
     return (
-        <>{getList()}
-            <Topbar></Topbar>
+        <>  
+            {getList()}
             <div className="shop-container">
                 <h2 className="title">Products</h2>
                 <div className="product-container" id="product-container">
@@ -23,6 +21,7 @@ export default function Shop() {
 }
 
 async function getProductList() {
+
     const firebaseConfig = {
         apiKey: "AIzaSyAvxvEtENC1DGh00_tIv6K0Wg8qZ1rMlb4",
         authDomain: "webshop-f0863.firebaseapp.com",

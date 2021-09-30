@@ -31,4 +31,8 @@
 .product-img{
     max-height: 200px;
     width: auto;
-}
+}.row {
+    margin-top: 15%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
