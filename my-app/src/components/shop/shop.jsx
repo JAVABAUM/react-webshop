@@ -1,27 +1,22 @@
-import React from "react";
-import Topbar from "../topbar/topbar";
-import Footer from "../footer/footer";
+import { React } from "react";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { initializeApp } from "firebase/app";
-import { collection, doc, getDocs, query, getFirestore } from "firebase/firestore";
+import { collection, getDocs, query, getFirestore } from "firebase/firestore";
+import Topbar from '../topbar/topbar'
 import placeholder from './placeholder.jpg';
-
-
-import './shop.css'
-import Product from './product'
+import './shop.css';
 
 
 export default function Shop() {
 
     return (
-        <>
+        <>{getList()}
             <Topbar></Topbar>
             <div className="shop-container">
                 <h2 className="title">Products</h2>
                 <div className="product-container" id="product-container">
-                    {getList()}
-                </div>
 
+                </div>
             </div>
             <Footer></Footer>
         </>
@@ -71,17 +66,30 @@ function getList() {
             title.innerHTML = (`${element.title}`);
             div.className = "product";
 
-            link.href = "/product";
-            link.className="product-link";
+            link.className = "product-link";
 
-            img.src = './placeholder.jpg';
+            getImageUrl(element.image);
+
+            img.setAttribute("id", element.image);
             img.className = "product-img";
 
-            link.appendChild(img);
             link.appendChild(title);
+            link.appendChild(img);
             div.appendChild(link);
 
             document.getElementById("product-container").appendChild(div)
         })
     })
+}
+
+function getImageUrl(img) {
+    const storage = getStorage();
+    getDownloadURL(ref(storage, `product-images/${img}`))
+        .then((url) => {
+            document.getElementById(img).setAttribute("src", url);
+        })
+        .catch((error) => {
+            console.log(error);
+            document.getElementById(img).setAttribute("src", placeholder);
+        });
 }
