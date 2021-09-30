@@ -5,18 +5,18 @@ import { Link } from "react-router-dom";
 function Topbar() {
     return (
         <>
-            <div class="navbar">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="container-fluid">
-                        <a class="navbar-brand" href="#">Shop</a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            <div className="navbar">
+                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                    <div className="container-fluid">
+                        <a className="navbar-brand" href="#">Shop</a>
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
+                            <span className="navbar-toggler-icon"></span>
                         </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                     <a class="nav-link" href="/about">About</a>
+                        <div className="collapse navbar-collapse" id="navbarNav">
+                            <ul className="navbar-nav">
+                                <li className="nav-item">
+                                     About
                                 </li>
                             </ul>
                         </div>
@@ -24,9 +24,9 @@ function Topbar() {
 
                         <div id="iconDiv">
                             <a href="#">
-                                <div class="headerIcon">
+                                <div className="headerIcon">
                                     <img id="icon" src="/media/images/user.png"></img>
-                                    <a id="leftmargin" href="#">Login</a>
+                                    Login
 
                                 </div>
 
@@ -35,9 +35,9 @@ function Topbar() {
 
                         <div id="iconDiv">
                             <a href="/cart">
-                                <div class="headerIcon">
+                                <div className="headerIcon">
                                     <img id="icon" src="/media/images/shopping-cart.png"></img>
-                                    <a id="leftmargin" href="/cart">Cart</a>
+                                    Cart
                                 </div>
                             </a>
 

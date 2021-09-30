@@ -3,20 +3,37 @@ import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { initializeApp } from "firebase/app";
 import { collection, getDocs, query, getFirestore } from "firebase/firestore";
 import Topbar from '../topbar/topbar'
+import Footer from "../footer/footer";
 import placeholder from './placeholder.jpg';
 import './shop.css';
-import Footer from "../footer/footer";
+import 'light-modal';
 
 export default function Shop() {
     return (
-        <>  
+        <>
+            <Topbar></Topbar>
             {getList()}
             <div className="shop-container">
+                <div class="light-modal" id="modal-id" role="dialog" aria-labelledby="light-modal-label" aria-hidden="false">
+                    <div class="light-modal-content animated zoomInUp">
+                        <div class="light-modal-header">
+                            <h3 class="light-modal-heading">Modal Title</h3>
+                            <a href="" class="light-modal-close-icon" aria-label="close">&times;</a>
+                        </div>
+                        <div class="light-modal-body">
+                            aiowejfaoiwefj
+                        </div>
+                        <div class="light-modal-footer">
+                            <a href="" class="light-modal-close-btn" aria-label="close">Close</a>
+                        </div>
+                    </div>
+                </div>
                 <h2 className="title">Products</h2>
                 <div className="product-container" id="product-container">
 
                 </div>
             </div>
+            <Footer></Footer>
         </>
     );
 }
@@ -66,6 +83,7 @@ function getList() {
             div.className = "product";
 
             link.className = "product-link";
+            link.href = "#modal-id";
 
             getImageUrl(element.image);
 
