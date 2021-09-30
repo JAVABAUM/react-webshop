@@ -38,7 +38,13 @@ function Login() {
                 Submit
               </button>
             </form>
+            <label id="errorLogIn">
+
+          </label>
           </div>
+
+          
+
           <div className="col-6">
             <h2>SIGNUP</h2>
             <form id="signupForm" onSubmit={(e) => signup(e)}>
@@ -72,11 +78,15 @@ function Login() {
               <button type="submit" className="login-button">
                 Submit
               </button>
+              
             </form>
+            <label id="errorSignUp">
+
+          </label>
+      </div>
           </div>
         </div>
-      </div>
-
+        
     </>
   );
 }
@@ -88,14 +98,17 @@ function login(e) {
   const auth = getAuth();
   var mail = document.getElementById("login-mail").value;
   var password = document.getElementById("login-password").value;
+  var error = document.getElementsByClassName("error").value;
 
   signInWithEmailAndPassword(auth, mail, password).then((cred) => {
     console.log(cred.user);
     window.location.replace("shop");
   }).catch((err) => {
     console.log(err);
+    document.getElementById('errorLogIn').innerHTML = 'Your Email or Password is incorrect';
   })
 }
+
 
   const firebaseConfig = {
     apiKey: "AIzaSyAvxvEtENC1DGh00_tIv6K0Wg8qZ1rMlb4",
@@ -114,11 +127,13 @@ function signup(e) {
   const auth = getAuth();
   var mail = document.getElementById("signup-mail").value;
   var password = document.getElementById("signup-password").value;
+  
 
   createUserWithEmailAndPassword(auth, mail, password).then((cred) => {
     console.log(cred.user);
     window.location.replace("shop");
   }).catch((err) => {
     console.log(err);
+    document.getElementById('errorSignUp').innerHTML = 'Please fill in all the fields';
   })
 }
