@@ -2,7 +2,7 @@ import { React } from "react";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { initializeApp } from "firebase/app";
 import { collection, getDocs, query, getFirestore } from "firebase/firestore";
-import Topbar from '../topbar/topbar'
+import Topbar from '../topbar/topbar';
 import placeholder from './placeholder.jpg';
 import './shop.css';
 import Footer from "../footer/footer";

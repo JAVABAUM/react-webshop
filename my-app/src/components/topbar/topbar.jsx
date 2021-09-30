@@ -1,8 +1,7 @@
 import "./topbar.css"
 import "../shop/cart"
-import { Link } from "react-router-dom";
 
-function Topbar() {
+export default function Topbar() {
     return (
         <>
             <div class="navbar">
@@ -59,4 +58,3 @@ function Topbar() {
     );
 }
 
-export default Topbar;
