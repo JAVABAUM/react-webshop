@@ -1,13 +1,8 @@
-<<<<<<< Updated upstream
-import React from "react";
-import Topbar from "../topbar/topbar";
-=======
 import { React } from "react";
->>>>>>> Stashed changes
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { initializeApp } from "firebase/app";
 import { collection, getDocs, query, getFirestore } from "firebase/firestore";
-
+import Topbar from '../topbar/topbar'
 import placeholder from './placeholder.jpg';
 import './shop.css';
 
@@ -15,12 +10,12 @@ import './shop.css';
 export default function Shop() {
 
     return (
-        <>
+        <>{getList()}
             <Topbar></Topbar>
             <div className="shop-container">
                 <h2 className="title">Products</h2>
                 <div className="product-container" id="product-container">
-                    {getList()}
+
                 </div>
             </div>
         </>
