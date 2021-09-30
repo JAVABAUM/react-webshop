@@ -2,6 +2,7 @@ import React from "react";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { initializeApp } from "firebase/app";
 import { collection, doc, getDocs, query, getFirestore } from "firebase/firestore";
+import placeholder from './placeholder.jpg';
 
 
 import './shop.css'
@@ -16,7 +17,7 @@ export default function Shop() {
                 <div className="product-container" id="product-container">
                     {getList()}
                 </div>
-                
+
             </div>
         </>
     );
@@ -63,7 +64,18 @@ function getList() {
             const img = document.createElement(`img`);
 
             title.innerHTML = (`${element.title}`);
-            div.className = "product"
+            div.className = "product";
+
+            link.href = "/product";
+            link.className="product-link";
+
+            img.src = './placeholder.jpg';
+            img.className = "product-img";
+
+            link.appendChild(img);
+            link.appendChild(title);
+            div.appendChild(link);
+
             document.getElementById("product-container").appendChild(div)
         })
     })

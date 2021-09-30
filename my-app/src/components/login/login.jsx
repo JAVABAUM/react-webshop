@@ -97,8 +97,6 @@ function login(e) {
   })
 }
 
-function signup(e) {
-
   const firebaseConfig = {
     apiKey: "AIzaSyAvxvEtENC1DGh00_tIv6K0Wg8qZ1rMlb4",
     authDomain: "webshop-f0863.firebaseapp.com",
@@ -109,6 +107,8 @@ function signup(e) {
   };
 
   const app = initializeApp(firebaseConfig);
+
+function signup(e) {
 
   e.preventDefault();
   const auth = getAuth();
