@@ -1,6 +1,7 @@
 import "./topbar.css"
 import "../shop/cart"
 import React, { Component } from "react";
+import ecomCart from '@ecomplus/shopping-cart'
 
 
 export default function Topbar() {
@@ -37,7 +38,7 @@ export default function Topbar() {
                             <a href="/cart">
                                 <div className="headerIcon">
                                     <img id="icon" src="/media/images/shopping-cart.png"></img>
-                                    Cart
+                                    Cart {ecomCart.data.items.length}
                                 </div>
                             </a>
                         </div>

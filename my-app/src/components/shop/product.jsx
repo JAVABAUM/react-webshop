@@ -18,12 +18,12 @@ class Product extends React.Component {
 
     componentDidMount() {
         this.setState({ product: this.props.location.state.product, images: this.props.location.state.images, index: this.props.location.state.index })
-        console.log(this.state);
     }
     render() {
         return (
             <>
                 <Topbar></Topbar>
+
                 <div className="product-container">
                     <h2 className="title">{this.props.match.params.title}</h2>
 
@@ -32,8 +32,8 @@ class Product extends React.Component {
                         <img src={this.state.images[this.state.index]} id="bigImage" alt="product" />
 
                         <br></br>
-                        <button class="button-6" id="smallerbutton" role="button" onClick={incQ.bind(this)}>+</button>
-                        <button class="button-6" id="smallerbutton" role="button" onClick={decQ.bind(this)}>-</button>
+                        <button className="button-6" id="smallerbutton" role="button" onClick={incQ.bind(this)}>+</button>
+                        <button className="button-6" id="smallerbutton" role="button" onClick={decQ.bind(this)}>-</button>
                         <br></br>
                         <input
                             className="numUpDown"
@@ -41,7 +41,7 @@ class Product extends React.Component {
                             readOnly
                             value={this.state.quantity}
                         ></input>
-                        <button class="button-6" role="button" onClick={addCart.bind(this)}>Add to cart!</button>
+                        <button className="button-6" role="button" onClick={addCart.bind(this)}>Add to cart!</button>
 
                     </div>
 
@@ -78,7 +78,6 @@ class Product extends React.Component {
                 price: this.state.product.price,
                 keep_item_price: true
             })
-            console.log(ecomCart.data);
         }
     }
 }

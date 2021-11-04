@@ -8,20 +8,23 @@ import ecomCart from '@ecomplus/shopping-cart'
 class Cart extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {thing: 'thing'};
     }
     componentDidMount() {
     }
     resetCart() {
         ecomCart.reset();
+        window.location.reload();
     }
-    checkout(){
+    checkout() {
         alert('Checkout');
     }
 
-    render() {
-        // return item with title quantity and price
-
+    render() {        
+        function removeItem(id)
+        {
+            ecomCart.removeItem(id);
+        };
         const items = Array.from(ecomCart.data.items).map(function (item, index) {
             return (
                 <div className="card" key={index}>
@@ -35,6 +38,9 @@ class Cart extends Component {
                             </div>
                             <div>
                                 Price: {item.price}
+                            </div>
+                            <div>
+                                <button className="remove-btn" onClick={removeItem(item.product_id)}>remove</button>
                             </div>
                         </div>
                     </div>
@@ -51,7 +57,7 @@ class Cart extends Component {
                         {items}
                         <br />
                         <div className="total">
-                            Total: {ecomCart.data.subtotal}
+                            Total: {ecomCart.data.subtotal} CHF
                         </div>
 
                         <div className="reset">
