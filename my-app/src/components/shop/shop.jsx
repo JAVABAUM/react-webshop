@@ -1,112 +1,81 @@
-import { React } from "react";
+import { React, Component } from "react";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { initializeApp } from "firebase/app";
 import { collection, getDocs, query, getFirestore } from "firebase/firestore";
 import Topbar from '../topbar/topbar'
 import Footer from "../footer/footer";
-import placeholder from './placeholder.jpg';
 import './shop.css';
-import 'light-modal';
+class Shop extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { productlist: [], images: [] };
+    }
 
-export default function Shop() {
-    return (
-        <>
-            <Topbar></Topbar>
-            {getList()}
-            <div className="shop-container">
-                <div class="light-modal" id="modal-id" role="dialog" aria-labelledby="light-modal-label" aria-hidden="false">
-                    <div class="light-modal-content animated zoomInUp">
-                        <div class="light-modal-header">
-                            <h3 class="light-modal-heading">Modal Title</h3>
-                            <a href="" class="light-modal-close-icon" aria-label="close">&times;</a>
-                        </div>
-                        <div class="light-modal-body">
-                            aiowejfaoiwefj
-                        </div>
-                        <div class="light-modal-footer">
-                            <a href="" class="light-modal-close-btn" aria-label="close">Close</a>
-                        </div>
+    render() {
+        const { productlist, images } = this.state;
+        const prlist = Array.from(productlist).map(function (product, index) {
+            return <div className="product" >
+                <h3 className="">{product.title}</h3>
+                <img className="product-img" src={images[index]} alt="product" />
+            </div>;
+        });
+
+        return (
+            <>
+                <Topbar />
+                <div className="shop-container">
+
+                    <h2 className="title">Products</h2>
+                    <div className="product-container" id="product-container">
+                        {prlist}
                     </div>
                 </div>
-                <h2 className="title">Products</h2>
-                <div className="product-container" id="product-container">
+                <Footer />
+            </>
+        );
+    }
 
-                </div>
-            </div>
-            <Footer></Footer>
-        </>
-    );
-}
+    async componentDidMount() {
+        const firebaseConfig = {
+            apiKey: "AIzaSyAvxvEtENC1DGh00_tIv6K0Wg8qZ1rMlb4",
+            authDomain: "webshop-f0863.firebaseapp.com",
+            projectId: "webshop-f0863",
+            storageBucket: "webshop-f0863.appspot.com",
+            messagingSenderId: "727095280293",
+            appId: "1:727095280293:web:718b2c3fffc99ec311c34c"
+        };
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
 
-async function getProductList() {
-
-    const firebaseConfig = {
-        apiKey: "AIzaSyAvxvEtENC1DGh00_tIv6K0Wg8qZ1rMlb4",
-        authDomain: "webshop-f0863.firebaseapp.com",
-        projectId: "webshop-f0863",
-        storageBucket: "webshop-f0863.appspot.com",
-        messagingSenderId: "727095280293",
-        appId: "1:727095280293:web:718b2c3fffc99ec311c34c"
-    };
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    let list = [];
-    const q = query(collection(db, "products"));
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((product) => {
-        list.push(
-            {
-                title: product.data().title,
-                image: product.data().image_src,
-                description: product.data().description
-            });
-    });
-    return list;
-}
-
-function getList() {
-    let productlist = getProductList();
-    let final = [];
-    productlist.then((list) => {
-        list.forEach((product) => {
-            final.push(product);
-        })
-    }).finally((e) => {
-        final.forEach((element) => {
-            const div = document.createElement(`div`);
-            const link = document.createElement(`a`);
-            const title = document.createElement(`h3`);
-            const img = document.createElement(`img`);
-
-            title.innerHTML = (`${element.title}`);
-            div.className = "product";
-
-            link.className = "product-link";
-            link.href = "#modal-id";
-
-            getImageUrl(element.image);
-
-            img.setAttribute("id", element.image);
-            img.className = "product-img";
-
-            link.appendChild(title);
-            link.appendChild(img);
-            div.appendChild(link);
-
-            document.getElementById("product-container").appendChild(div)
-        })
-    })
-}
-
-function getImageUrl(img) {
-    const storage = getStorage();
-    getDownloadURL(ref(storage, `product-images/${img}`))
-        .then((url) => {
-            document.getElementById(img).setAttribute("src", url);
-        })
-        .catch((error) => {
-            console.log(error);
-            document.getElementById(img).setAttribute("src", placeholder);
+        let list = [];
+        const q = query(collection(db, "products"));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((product) => {
+            list.push(
+                {
+                    title: product.data().title,
+                    image: product.data().image_src,
+                    description: product.data().description
+                });
+            this.getImageUrl(product.data().image_src);
         });
+        this.setState({ productlist: list });
+    }
+
+
+    getImageUrl(img) {
+        const storage = getStorage();
+        getDownloadURL(ref(storage, `product-images/${img}`))
+            .then((url) => {
+                this.setState({ images: [...this.state.images, url] });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+
+    componentWillUnmount() {
+    }
 }
+
+export default Shop;
