@@ -2,6 +2,7 @@ import { React, Component } from "react";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { initializeApp } from "firebase/app";
 import { collection, getDocs, query, getFirestore } from "firebase/firestore";
+import { Link } from "react-router-dom";
 import Topbar from '../topbar/topbar'
 import Footer from "../footer/footer";
 import './shop.css';
@@ -17,16 +18,21 @@ class Shop extends Component {
             return <div className="product" >
                 <h3 className="">{product.title}</h3>
                 <img className="product-img" src={images[index]} alt="product" />
+                <br />
+                <Link to={`/product/${product.title}`} 
+                    state={{ product: product, images: images, index: index }}>
+                    <button className="buy-btn" >Buy</button>
+                </Link>
             </div>;
         });
+
 
         return (
             <>
                 <Topbar />
                 <div className="shop-container">
-
                     <h2 className="title">Products</h2>
-                    <div className="product-container" id="product-container">
+                    <div className="" id="product-container">
                         {prlist}
                     </div>
                 </div>
