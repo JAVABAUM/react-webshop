@@ -16,7 +16,7 @@ class Shop extends Component {
     render() {
         const { productlist, images } = this.state;
         const prlist = Array.from(productlist).map(function (product, index) {
-            return <div className="product" >
+            return <div className="product" key={index}>
                 <h3 className="">{product.title}</h3>
                 <img className="product-img" src={images[index]} alt="product" />
                 <br />
@@ -76,7 +76,6 @@ class Shop extends Component {
             
         });
         this.setState({ productlist: list });
-        console.log(ecomCart.data);
     }
 
 

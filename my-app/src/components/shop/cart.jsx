@@ -11,7 +11,6 @@ class Cart extends Component {
         this.state = {};
     }
     componentDidMount() {
-
     }
     resetCart() {
         ecomCart.reset();
@@ -51,7 +50,7 @@ class Cart extends Component {
                         <div className="total">
                             Total: {ecomCart.data.subtotal}
                         </div>
-                        
+
                         <div className="reset">
                             <button className="cart-btn" onClick={this.resetCart}>Reset</button>
                             <button className="cart-btn">Check out</button>

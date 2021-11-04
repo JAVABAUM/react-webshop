@@ -17,7 +17,7 @@ export default function Topbar() {
                         <div className="collapse navbar-collapse" id="navbarNav">
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    About
+                                    
                                 </li>
                             </ul>
                         </div>
@@ -47,30 +47,3 @@ export default function Topbar() {
         </>
     );
 }
-
-
-
-/*
-firebase.initializeApp({
-    apiKey: "AIzaSyAvxvEtENC1DGh00_tIv6K0Wg8qZ1rMlb4",
-    authDomain: "webshop-f0863.firebaseapp.com",
-    projectId: "webshop-f0863",
-    storageBucket: "webshop-f0863.appspot.com",
-    messagingSenderId: "727095280293",
-    appId: "1:727095280293:web:718b2c3fffc99ec311c34c"
-});
-
-export const db = firebase.firestore(); initialise
-
-firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-        // User is signed in.
-        var displayName = user.displayName;
-        console.log("User is signed in.")
-        document.getElementById("username").innerHTML = displayName
-    } else {
-        console.log("No user is signed in.")
-        document.getElementById("username").innerHTML = "Guest"
-    }
-});
-*/
