@@ -1,8 +1,9 @@
 import React from "react";
-import ReactDOM, { render } from 'react-dom';
 import './product.css'
 import Topbar from '../topbar/topbar'
 import Footer from "../footer/footer";
+
+import ecomCart from '@ecomplus/shopping-cart'
 
 class Product extends React.Component {
     constructor(props) {
@@ -13,8 +14,8 @@ class Product extends React.Component {
             images: [],
             index: 0
         };
-
     }
+
     componentDidMount() {
         this.setState({ product: this.props.location.state.product, images: this.props.location.state.images, index: this.props.location.state.index })
         console.log(this.state);
@@ -25,10 +26,9 @@ class Product extends React.Component {
                 <Topbar></Topbar>
                 <div className="product-container">
                     <h2 className="title">{this.props.match.params.title}</h2>
-                    <br></br>
+
                     <div className="innercontainer">
-                        <br></br>
-                         
+
                         <img src={this.state.images[this.state.index]} id="bigImage" alt="product" />
 
                         <br></br>
@@ -68,14 +68,19 @@ class Product extends React.Component {
             }
         }
 
-        function addCart() {
-            alert("adding " + this.state.quantity + " itemname" + " to the basket");
+        function addCart() {           
+            ecomCart.addItem({
+                _id: this.state.product.id,
+                product_id: this.state.product.id,
+                sku: this.state.product.id,
+                name: this.state.product.title,
+                quantity: this.state.quantity,
+                price: this.state.product.price,
+                keep_item_price: true
+            })
+            console.log(ecomCart.data);
         }
-
     }
-
-
-
 }
 
 export default Product;

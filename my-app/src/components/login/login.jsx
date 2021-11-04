@@ -2,7 +2,7 @@ import "./login.css";
 import "../shop/shop";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Redirect } from "react-router-dom";
 
 
 function Login() {

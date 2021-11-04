@@ -2,6 +2,7 @@ import { React, Component } from "react";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { initializeApp } from "firebase/app";
 import { collection, getDocs, query, getFirestore } from "firebase/firestore";
+import ecomCart from '@ecomplus/shopping-cart'
 import { Link } from "react-router-dom";
 import Topbar from '../topbar/topbar'
 import Footer from "../footer/footer";
@@ -25,7 +26,7 @@ class Shop extends Component {
                         pathname: `/product/${product.title}`,
                         state: { product: product, images: images, index: index }
                     }} >
-                        <br/>
+                    <br />
                     <button className="view-btn" >View Product</button>
                 </Link>
             </div>;
@@ -64,13 +65,18 @@ class Shop extends Component {
         querySnapshot.forEach((product) => {
             list.push(
                 {
+                    id: product.id,
                     title: product.data().title,
                     image: product.data().image_src,
-                    description: product.data().description
+                    description: product.data().description,
+                    price: product.data().price,
                 });
             this.getImageUrl(product.data().image_src);
+
+            
         });
         this.setState({ productlist: list });
+        console.log(ecomCart.data);
     }
 
 
