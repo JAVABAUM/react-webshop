@@ -25,7 +25,8 @@ class Shop extends Component {
                         pathname: `/product/${product.title}`,
                         state: { product: product, images: images, index: index }
                     }} >
-                    <button className="button-6" >View Product</button>
+                        <br/>
+                    <button className="view-btn" >View Product</button>
                 </Link>
             </div>;
         });
