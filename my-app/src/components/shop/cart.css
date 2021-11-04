@@ -1,0 +1,14 @@
+.cart-container{    
+    width: 90vw;
+    margin: 5%;
+    height: 80vh;
+    border: 2px solid black;
+    font-size: x-large;
+    text-align: left;
+    overflow-x: hidden;
+  }
+
+  .title{
+    margin-left: 20px;
+    margin-top: 20px;
+}

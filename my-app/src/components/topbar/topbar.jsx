@@ -23,10 +23,10 @@ export default function Topbar() {
 
                         <div id="iconDiv">
                             <a href="#">
+                                
                                 <div className="headerIcon">
                                     <img id="icon" src="/media/images/user.png"></img>
                                     Login
-
                                 </div>
 
                             </a>
@@ -47,3 +47,16 @@ export default function Topbar() {
     );
 }
 
+
+/*firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        // User is signed in.
+        var displayName = user.displayName;
+        console.log("User is signed in.")
+        document.getElementById("username").innerHTML = displayName
+    } else {
+        console.log("No user is signed in.")
+        document.getElementById("username").innerHTML = "Guest"
+    }
+});
+*/
