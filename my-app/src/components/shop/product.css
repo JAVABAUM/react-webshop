@@ -1,0 +1,135 @@
+.product-container {
+    width: 60vw;
+    height: auto;
+    border: 2px solid black;
+    font-size: x-large;
+    text-align: left;
+    overflow-x: hidden;
+    display: table;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+}
+
+.innercontainer {
+    margin-left: 25%;
+    margin-bottom: 20px;
+}
+
+.title {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.product-link {
+    color: black;
+    text-decoration: none;
+    text-decoration-color: white;
+}
+
+.product-img {
+    max-height: 200px;
+    width: auto;
+}
+
+.row {
+    margin-top: 15%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#bigImage {
+    width: 30vw;
+    display: inline-block;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+.button-6 {
+    /* https://getcssscan.com/css-buttons-examples */
+    align-items: center;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    min-height: 3rem;
+    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: 30vw;
+}
+
+.numUpDown {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    min-height: 3rem;
+    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    width: 30vw;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.button-6:hover, .button-6:focus {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.button-6:hover {
+    transform: translateY(-1px);
+}
+
+.button-6:active {
+    background-color: #F0F0F1;
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+    color: rgba(0, 0, 0, 0.65);
+    transform: translateY(0);
+}
+
+#smallerbutton {
+    width: 15vw;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input:hover{
+    cursor: not-allowed;
+}
