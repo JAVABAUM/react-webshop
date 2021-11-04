@@ -15,7 +15,7 @@ export default function Topbar() {
                         <div className="collapse navbar-collapse" id="navbarNav">
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                     About
+                                    About
                                 </li>
                             </ul>
                         </div>
@@ -39,19 +39,10 @@ export default function Topbar() {
                                     Cart
                                 </div>
                             </a>
-
-
                         </div>
-
-
-
-
-
                     </div>
                 </nav>
             </div>
-
-            
         </>
     );
 }
