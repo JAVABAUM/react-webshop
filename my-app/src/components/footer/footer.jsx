@@ -9,7 +9,7 @@ function Footer() {
                     <li class="nav-item"><a href="/shop" class="nav-link px-2 text-muted">Webshop</a></li>
                     <li class="nav-item"><a href="/about" class="nav-link px-2 text-muted">About</a></li>
                 </ul>
-                <p class="text-center text-muted">© 2021 JAVA BAUM</p>
+                <p className="text-center text-muted">© 2021 JAVA BAUM</p>
             </footer>
         </div>
     )
@@ -17,4 +17,3 @@ function Footer() {
 }
 
 export default Footer;
-
