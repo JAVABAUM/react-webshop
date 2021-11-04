@@ -15,13 +15,16 @@ class Cart extends Component {
     resetCart() {
         ecomCart.reset();
     }
+    checkout(){
+        alert('Checkout');
+    }
 
     render() {
         // return item with title quantity and price
 
         const items = Array.from(ecomCart.data.items).map(function (item, index) {
             return (
-                <div className="card">
+                <div className="card" key={index}>
                     <div className="card-body">
                         <div className="hstack gap-3">
                             <div>
@@ -53,7 +56,7 @@ class Cart extends Component {
 
                         <div className="reset">
                             <button className="cart-btn" onClick={this.resetCart}>Reset</button>
-                            <button className="cart-btn">Check out</button>
+                            <button className="cart-btn" onClick={this.checkout}>Check out</button>
                         </div>
                     </div>
                 </div>

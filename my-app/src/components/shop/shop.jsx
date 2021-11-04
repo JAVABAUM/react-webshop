@@ -1,8 +1,7 @@
 import { React, Component } from "react";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
-import { initializeApp } from "firebase/app";
 import { collection, getDocs, query, getFirestore } from "firebase/firestore";
-import ecomCart from '@ecomplus/shopping-cart'
+import firebase from '../../firebase.js'
 import { Link } from "react-router-dom";
 import Topbar from '../topbar/topbar'
 import Footer from "../footer/footer";
@@ -32,7 +31,6 @@ class Shop extends Component {
             </div>;
         });
 
-
         return (
             <>
                 <Topbar />
@@ -48,16 +46,7 @@ class Shop extends Component {
     }
 
     async componentDidMount() {
-        const firebaseConfig = {
-            apiKey: "AIzaSyAvxvEtENC1DGh00_tIv6K0Wg8qZ1rMlb4",
-            authDomain: "webshop-f0863.firebaseapp.com",
-            projectId: "webshop-f0863",
-            storageBucket: "webshop-f0863.appspot.com",
-            messagingSenderId: "727095280293",
-            appId: "1:727095280293:web:718b2c3fffc99ec311c34c"
-        };
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
+        const db = getFirestore(firebase);
 
         let list = [];
         const q = query(collection(db, "products"));
@@ -73,7 +62,7 @@ class Shop extends Component {
                 });
             this.getImageUrl(product.data().image_src);
 
-            
+
         });
         this.setState({ productlist: list });
     }
