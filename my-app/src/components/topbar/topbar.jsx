@@ -1,5 +1,7 @@
 import "./topbar.css"
 import "../shop/cart"
+import React, { Component } from "react";
+
 
 export default function Topbar() {
     return (
@@ -23,7 +25,7 @@ export default function Topbar() {
 
                         <div id="iconDiv">
                             <a href="#">
-                                
+
                                 <div className="headerIcon">
                                     <img id="icon" src="/media/images/user.png"></img>
                                     Login
@@ -48,7 +50,20 @@ export default function Topbar() {
 }
 
 
-/*firebase.auth().onAuthStateChanged(function (user) {
+
+/*
+firebase.initializeApp({
+    apiKey: "AIzaSyAvxvEtENC1DGh00_tIv6K0Wg8qZ1rMlb4",
+    authDomain: "webshop-f0863.firebaseapp.com",
+    projectId: "webshop-f0863",
+    storageBucket: "webshop-f0863.appspot.com",
+    messagingSenderId: "727095280293",
+    appId: "1:727095280293:web:718b2c3fffc99ec311c34c"
+});
+
+export const db = firebase.firestore(); initialise
+
+firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // User is signed in.
         var displayName = user.displayName;
