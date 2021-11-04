@@ -8,12 +8,16 @@ class Product extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            quantity: 1
+            quantity: 1,
+            product: {},
+            images: [],
+            index: 0
         };
 
     }
     componentDidMount() {
-        
+        this.setState({ product: this.props.location.state.product, images: this.props.location.state.images, index: this.props.location.state.index })
+        console.log(this.state);
     }
     render() {
         return (
@@ -22,9 +26,11 @@ class Product extends React.Component {
                 <div className="product-container">
                     <h2 className="title">{this.props.match.params.title}</h2>
                     <br></br>
-                    {console.log(this.props.location.state)}
                     <div className="innercontainer">
                         <br></br>
+                         
+                        <img src={this.state.images[this.state.index]} id="bigImage" alt="product" />
+
                         <br></br>
                         <button class="button-6" id="smallerbutton" role="button" onClick={incQ.bind(this)}>+</button>
                         <button class="button-6" id="smallerbutton" role="button" onClick={decQ.bind(this)}>-</button>

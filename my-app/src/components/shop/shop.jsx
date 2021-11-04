@@ -19,9 +19,13 @@ class Shop extends Component {
                 <h3 className="">{product.title}</h3>
                 <img className="product-img" src={images[index]} alt="product" />
                 <br />
-                <Link to={`/product/${product.title}`} 
-                    state={{ product: product, images: images, index: index }}>
-                    <button className="buy-btn" >Buy</button>
+
+                <Link
+                    to={{
+                        pathname: `/product/${product.title}`,
+                        state: { product: product, images: images, index: index }
+                    }} >
+                    <button className="button-6" >View Product</button>
                 </Link>
             </div>;
         });
