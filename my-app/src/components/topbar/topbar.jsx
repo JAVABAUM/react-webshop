@@ -9,7 +9,7 @@ export default function Topbar() {
             <div className="navbar">
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
                     <div className="container-fluid">
-                        <a className="navbar-brand" href="/login">Shop</a>
+                        <a className="navbar-brand" href="/shop">Shop</a>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
@@ -24,7 +24,7 @@ export default function Topbar() {
 
 
                         <div id="iconDiv">
-                            <a href="/product">
+                            <a href="/login">
                                 <div className="headerIcon">
                                     <img id="icon" src="/media/images/user.png"></img>
                                     Login

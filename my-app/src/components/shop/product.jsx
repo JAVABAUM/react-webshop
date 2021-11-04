@@ -10,7 +10,6 @@ class Product extends React.Component {
         this.state = {
             quantity: 1
         };
-
     }
 
     render() {
@@ -20,7 +19,6 @@ class Product extends React.Component {
                 <div className="product-container">
                     <h2 className="title">title</h2>
                     <br></br>
-
                     <div className="innercontainer">
                         <img id="bigImage" src="https://thumbs.dreamstime.com/b/cosmos-beauty-deep-space-elements-image-furnished-nasa-science-fiction-art-102581846.jpg"></img>
                         <br></br>
@@ -35,10 +33,7 @@ class Product extends React.Component {
                             value={this.state.quantity}
                         ></input>
                         <button class="button-6" role="button" onClick={addCart.bind(this)}>Add to cart!</button>
-
                     </div>
-
-
                 </div>
                 <Footer></Footer>
             </>
@@ -50,7 +45,6 @@ class Product extends React.Component {
             } else {
                 this.setState({ quantity: this.state.quantity + 1 })
             }
-
         }
 
         function decQ() {
@@ -64,11 +58,7 @@ class Product extends React.Component {
         function addCart() {
             alert("adding " + this.state.quantity + " itemname" + " to the basket");
         }
-
     }
-
-
-
 }
 
 export default Product;
