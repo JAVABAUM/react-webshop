@@ -13,7 +13,6 @@ class Cart extends Component {
     componentDidMount() {
     }
     resetCart() {
-        ecomCart.reset();
         window.location.reload();
     }
     checkout() {

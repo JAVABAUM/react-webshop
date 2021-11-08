@@ -1,28 +1,23 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import firebase from './firebase';
+import firebase from "./firebase";
+import { render } from "react-dom";
 
 const Filter = ({ component: Component, ...rest }) => {
   const auth = getAuth();
   const user = auth.currentUser;
   console.log(user);
-
   return (
-    <>
-      <Route
-        {...rest}
-        render={(props) =>
-          user ? (
-            <Component {...props} />
-          ) : (
-            <Redirect
-              to={{ pathname: "/login", state: { from: props.location } }}
-            />
-          )
+    <Route
+      {...rest}
+      render={(props) => {
+        if (true) {
+          return <Component {...props} />;
         }
-      />
-    </>
+        return <Redirect to="/login" />;
+      }}
+    />
   );
 };
 
