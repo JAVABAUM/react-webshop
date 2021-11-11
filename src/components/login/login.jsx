@@ -97,7 +97,7 @@ function login(e) {
     window.location.replace("shop");
   }).catch((err) => {
     console.log(err);
-    document.getElementById('error').innerHTML = 'Your Email or Password is incorrect';
+    // document.getElementById('error').innerHTML = 'Your Email or Password is incorrect';
   })
 }
 
@@ -112,6 +112,6 @@ function signup(e) {
     window.location.replace("shop");
   }).catch((err) => {
     console.log(err);
-    document.getElementById('errorSignUp').innerHTML = 'Please fill in all the fields';
+    // document.getElementById('errorSignUp').innerHTML = 'Please fill in all the fields';
   })
 }
