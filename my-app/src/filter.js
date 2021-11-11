@@ -2,7 +2,6 @@ import React from "react";
 import { Redirect, Route } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import firebase from "./firebase";
-import { render } from "react-dom";
 
 const Filter = ({ component: Component, ...rest }) => {
   const auth = getAuth();
