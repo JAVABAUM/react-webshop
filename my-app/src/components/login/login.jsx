@@ -1,17 +1,13 @@
 import "./login.css";
 import "../shop/shop";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
-import { initializeApp } from 'firebase/app';
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import '../../firebase';
+import { BrowserRouter as Redirect } from "react-router-dom";
 
 
 function Login() {
   return (
     <>
-      {
-        getAuth().currentUser ?
-          <Redirect to="/user" /> : null
-      }
       <div className="login-container">
         <div className="login-row row">
           <div className="col-6">
@@ -40,10 +36,8 @@ function Login() {
             </form>
             <label id="errorLogIn">
 
-          </label>
+            </label>
           </div>
-
-          
 
           <div className="col-6">
             <h2>SIGNUP</h2>
@@ -78,15 +72,14 @@ function Login() {
               <button type="submit" className="login-button">
                 Submit
               </button>
-              
+
             </form>
             <label id="errorSignUp">
-
-          </label>
-      </div>
+            </label>
           </div>
         </div>
-        
+      </div>
+
     </>
   );
 }
@@ -101,36 +94,21 @@ function login(e) {
   var error = document.getElementsByClassName("error").value;
 
   signInWithEmailAndPassword(auth, mail, password).then((cred) => {
-    console.log(cred.user);
     window.location.replace("shop");
   }).catch((err) => {
     console.log(err);
-    document.getElementById('errorLogIn').innerHTML = 'Your Email or Password is incorrect';
+    document.getElementById('error').innerHTML = 'Your Email or Password is incorrect';
   })
 }
 
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyAvxvEtENC1DGh00_tIv6K0Wg8qZ1rMlb4",
-    authDomain: "webshop-f0863.firebaseapp.com",
-    projectId: "webshop-f0863",
-    storageBucket: "webshop-f0863.appspot.com",
-    messagingSenderId: "727095280293",
-    appId: "1:727095280293:web:718b2c3fffc99ec311c34c"
-  };
-
-  const app = initializeApp(firebaseConfig);
-
 function signup(e) {
-
   e.preventDefault();
   const auth = getAuth();
   var mail = document.getElementById("signup-mail").value;
   var password = document.getElementById("signup-password").value;
-  
 
   createUserWithEmailAndPassword(auth, mail, password).then((cred) => {
-    console.log(cred.user);
     window.location.replace("shop");
   }).catch((err) => {
     console.log(err);

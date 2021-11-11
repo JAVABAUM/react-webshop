@@ -1,14 +1,121 @@
-.cart-container{    
-    width: 90vw;
-    margin: 5%;
-    height: 80vh;
-    border: 2px solid black;
-    font-size: x-large;
-    text-align: left;
-    overflow-x: hidden;
-  }
+.cart-container {
+  width: 90vw;
+  margin: 5%;
+  height: 80vh;
+  border: 2px solid black;
+  font-size: x-large;
+  text-align: left;
+  overflow-x: hidden;
+}
 
-  .title{
-    margin-left: 20px;
-    margin-top: 20px;
+.title {
+  margin: 20px;
+}
+
+.total {
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 20%;
+  border-bottom: 2px solid black;
+}
+
+.card{
+  border: 1px solid black;
+  margin: 5px;
+}
+.reset{
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.cart-btn {
+  margin-left: 5px;
+  margin-right: 5px;
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.616);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: 20vw;
+}
+
+.cart-btn:hover, .cart-btn:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.cart-btn:hover {
+  transform: translateY(-1px);
+}
+
+.cart-btn:active {
+  background-color: #F0F0F1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}
+
+
+.remove-btn {
+  margin-left: 5px;
+  margin-right: 5px;
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(202, 0, 0, 0.616);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: 6vw;
+}
+
+.remove-btn:hover, .remove-btn:focus {
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.remove-btn:hover {
+  transform: translateY(-1px);
+}
+
+.remove-btn:active {
+  background-color: #F0F0F1;
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
 }
