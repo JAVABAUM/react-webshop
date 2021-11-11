@@ -16,8 +16,11 @@ export default class checkout extends Component {
     componentDidMount() {
         const ecom = Array.from(ecomCart.data.items);
         this.setState({ cart: ecom });
-        const dbuser = getAuth().currentUser.uid;
-        this.setState({ user: dbuser });
+        var dbuser = getAuth()
+        setTimeout(() => {
+            dbuser = dbuser.currentUser.uid;
+            this.setState({ user: dbuser });
+        }, 500);
     }
 
     pay(e) {
@@ -33,7 +36,7 @@ export default class checkout extends Component {
             + currentdate.getMinutes() + ":"
             + currentdate.getSeconds();
 
-        cart.forEach(item => {  
+        cart.forEach(item => {
             const doc = {
                 price: item.price,
                 product: item.name,
