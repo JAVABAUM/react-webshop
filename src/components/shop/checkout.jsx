@@ -82,8 +82,8 @@ export default class checkout extends Component {
                                 </label>
                                 <input
                                     type="number"
-                                    min="1111"
-                                    max="9999"
+                                    min="111"
+                                    max="999"
                                     className="form-control"
                                     id="login-mail"
                                     aria-describedby="emailHelp"
