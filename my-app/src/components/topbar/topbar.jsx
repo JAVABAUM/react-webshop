@@ -52,7 +52,7 @@ export default function Topbar() {
                             </a>
                         </div>
                         <div id="iconDiv" >
-                            <a onclick="firebaseLogout()" href="/login">
+                            <a onclick="firebaseLogout()" href="/login" >
                                 <div className="headerIcon">
                                     Logout
                                 </div>
