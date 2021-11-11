@@ -8,10 +8,10 @@ import ecomCart from '@ecomplus/shopping-cart'
 class Cart extends Component {
     constructor(props) {
         super(props);
-        this.state = {thing: 'thing'};
+        this.state = { cart: ecomCart};
     }
     componentDidMount() {
-        
+        console.log(this.state.cart.data);
     }
     resetCart() {
         alert('Reset');
@@ -24,7 +24,7 @@ class Cart extends Component {
         function removeItem(id) {
             ecomCart.removeItem(id);
         };
-        const items = Array.from(ecomCart.data.items).map(function (item, index) {
+        const items = Array.from(this.state.cart.data.items).map(function (item, index) {
             return (
                 <div className="card" key={index}>
                     <div className="card-body">
@@ -39,7 +39,7 @@ class Cart extends Component {
                                 Price: {item.price}
                             </div>
                             <div>
-                                <button className="remove-btn" onClick={removeItem(item.product_id)}>remove</button>
+                                <button className="remove-btn" >remove</button>
                             </div>
                         </div>
                     </div>

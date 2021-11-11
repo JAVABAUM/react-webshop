@@ -19,6 +19,7 @@ class Product extends Component {
     componentDidMount() {
         const img = this.state.images.get(this.state.index);
         this.setState({ image: img });
+        console.log(ecomCart.data)
     }
     render() {
         return (
@@ -75,7 +76,6 @@ class Product extends Component {
                 price: this.state.product.price,
                 keep_item_price: true
             });
-
         }
     }
 }
