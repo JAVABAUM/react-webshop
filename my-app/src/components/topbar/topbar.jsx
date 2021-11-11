@@ -6,6 +6,7 @@ import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { initializeApp } from "firebase/app";
 import { collection, getDocs, query, getFirestore } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import firebase from "../../firebase";
 
 
 export default function Topbar() {
@@ -64,15 +65,8 @@ export default function Topbar() {
         </>
     );
 }
-const firebaseConfig = {
-    apiKey: "AIzaSyAvxvEtENC1DGh00_tIv6K0Wg8qZ1rMlb4",
-    authDomain: "webshop-f0863.firebaseapp.com",
-    projectId: "webshop-f0863",
-    storageBucket: "webshop-f0863.appspot.com",
-    messagingSenderId: "727095280293",
-    appId: "1:727095280293:web:718b2c3fffc99ec311c34c"
-};
-const app = initializeApp(firebaseConfig);
+
+const app = firebase;
 const db = getFirestore(app);
 
 
