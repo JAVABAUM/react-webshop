@@ -40,7 +40,7 @@ export default class checkout extends Component {
             const doc = {
                 price: item.price,
                 product: item.name,
-                quantity: item.quantity,
+                quantity: item.quantity / 2,
                 user: user,
                 date: datetime
             }
@@ -82,8 +82,8 @@ export default class checkout extends Component {
                                 </label>
                                 <input
                                     type="number"
-                                    min="1111"
-                                    max="9999"
+                                    min="111"
+                                    max="999"
                                     className="form-control"
                                     id="login-mail"
                                     aria-describedby="emailHelp"
@@ -106,6 +106,5 @@ export default class checkout extends Component {
             </>
         );
     }
-
 
 }

@@ -34,7 +34,7 @@ function Login() {
                 Submit
               </button>
             </form>
-            <label id="errorLogIn">
+            <label id="errorSignIn">
 
             </label>
           </div>
@@ -97,7 +97,7 @@ function login(e) {
     window.location.replace("shop");
   }).catch((err) => {
     console.log(err);
-    document.getElementById('error').innerHTML = 'Your Email or Password is incorrect';
+    document.getElementById('errorSignIn').innerHTML = 'Your Email or Password is incorrect';
   })
 }
 
