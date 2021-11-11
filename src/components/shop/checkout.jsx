@@ -40,7 +40,7 @@ export default class checkout extends Component {
             const doc = {
                 price: item.price,
                 product: item.name,
-                quantity: item.quantity,
+                quantity: item.quantity / 2,
                 user: user,
                 date: datetime
             }
