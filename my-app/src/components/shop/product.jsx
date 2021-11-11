@@ -1,11 +1,11 @@
-import React from "react";
+import { React, Component, Link } from "react";
 import './product.css'
 import Topbar from '../topbar/topbar'
 import Footer from "../footer/footer";
 
 import ecomCart from '@ecomplus/shopping-cart'
 
-class Product extends React.Component {
+class Product extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -27,11 +27,8 @@ class Product extends React.Component {
 
                 <div className="product-container">
                     <h2 className="title">{this.props.match.params.title}</h2>
-
                     <div className="innercontainer">
-
                         <img src={this.state.image} id="bigImage" alt="product" />
-
                         <br></br>
                         <button className="button-6" id="smallerbutton" role="button" onClick={incQ.bind(this)}>+</button>
                         <button className="button-6" id="smallerbutton" role="button" onClick={decQ.bind(this)}>-</button>
@@ -43,10 +40,10 @@ class Product extends React.Component {
                             value={this.state.quantity}
                         ></input>
                         <button className="button-6" role="button" onClick={addCart.bind(this)}>Add to cart!</button>
-
+                        <a href="/checkout">
+                            <button className="button-6" role="button" onClick={addCart.bind(this)}>Checkout</button>
+                        </a>
                     </div>
-
-
                 </div>
                 <Footer></Footer>
             </>
@@ -58,7 +55,6 @@ class Product extends React.Component {
             } else {
                 this.setState({ quantity: this.state.quantity + 1 })
             }
-
         }
 
         function decQ() {
@@ -78,7 +74,8 @@ class Product extends React.Component {
                 quantity: this.state.quantity,
                 price: this.state.product.price,
                 keep_item_price: true
-            })
+            });
+
         }
     }
 }

@@ -19,22 +19,36 @@ export default class checkout extends Component {
         const dbuser = getAuth().currentUser.uid;
         this.setState({ user: dbuser });
     }
+
     pay(e) {
         e.preventDefault();
         const db = getFirestore(firebase);
         const cart = this.state.cart;
         const user = this.state.user;
+        const currentdate = new Date();
+        var datetime = currentdate.getDate() + "/"
+            + (currentdate.getMonth() + 1) + "/"
+            + currentdate.getFullYear() + " @ "
+            + currentdate.getHours() + ":"
+            + currentdate.getMinutes() + ":"
+            + currentdate.getSeconds();
 
-        cart.forEach(item => {
+        cart.forEach(item => {  
             const doc = {
                 price: item.price,
                 product: item.name,
                 quantity: item.quantity,
-                user: user
+                user: user,
+                date: datetime
             }
             console.log(doc)
             const docRef = addDoc(collection(db, "orders"), doc);
         });
+
+
+        setTimeout(() => {
+            window.location.href = "/";
+        }, 1000);
     };
 
 

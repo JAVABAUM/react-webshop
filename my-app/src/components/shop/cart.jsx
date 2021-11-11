@@ -11,18 +11,17 @@ class Cart extends Component {
         this.state = {thing: 'thing'};
     }
     componentDidMount() {
-        console.log(ecomCart);
+        
     }
     resetCart() {
-        window.location.reload();
+        alert('Reset');
     }
     checkout() {
-        alert('Checkout');
+        window.location.href = '/checkout';
     }
 
     render() {        
-        function removeItem(id)
-        {
+        function removeItem(id) {
             ecomCart.removeItem(id);
         };
         const items = Array.from(ecomCart.data.items).map(function (item, index) {
