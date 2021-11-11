@@ -10,14 +10,15 @@ class Product extends React.Component {
         super(props);
         this.state = {
             quantity: 1,
-            product: {},
-            images: [],
-            index: 0
+            product: this.props.location.state.product,
+            images: this.props.location.state.images,
+            index: this.props.location.state.index
         };
     }
 
     componentDidMount() {
-        this.setState({ product: this.props.location.state.product, images: this.props.location.state.images, index: this.props.location.state.index })
+        const img = this.state.images.get(this.state.index);
+        this.setState({ image: img });
     }
     render() {
         return (
@@ -29,7 +30,7 @@ class Product extends React.Component {
 
                     <div className="innercontainer">
 
-                        <img src={this.state.images[this.state.index]} id="bigImage" alt="product" />
+                        <img src={this.state.image} id="bigImage" alt="product" />
 
                         <br></br>
                         <button className="button-6" id="smallerbutton" role="button" onClick={incQ.bind(this)}>+</button>
@@ -68,7 +69,7 @@ class Product extends React.Component {
             }
         }
 
-        function addCart() {           
+        function addCart() {
             ecomCart.addItem({
                 _id: this.state.product.id,
                 product_id: this.state.product.id,

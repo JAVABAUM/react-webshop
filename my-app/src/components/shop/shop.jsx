@@ -9,7 +9,7 @@ import './shop.css';
 class Shop extends Component {
     constructor(props) {
         super(props);
-        this.state = { productlist: [], images: [] };
+        this.state = { productlist: [], images: new Map() };
     }
 
     render() {
@@ -17,13 +17,13 @@ class Shop extends Component {
         const prlist = Array.from(productlist).map(function (product, index) {
             return <div className="product" key={index}>
                 <h3 className="">{product.title}</h3>
-                <img className="product-img" src={images[index]} alt="product" />
+                <img className="product-img" src={images.get(product.image)} alt="product" />
                 <br />
 
                 <Link
                     to={{
                         pathname: `/product/${product.title}`,
-                        state: { product: product, images: images, index: index }
+                        state: { product: product, images: images, index: product.image }
                     }} >
                     <br />
                     <button className="view-btn" >View Product</button>
@@ -72,7 +72,9 @@ class Shop extends Component {
         const storage = getStorage();
         getDownloadURL(ref(storage, `product-images/${img}`))
             .then((url) => {
-                this.setState({ images: [...this.state.images, url] });
+                const old = this.state.images;
+                old.set(img, url);
+                this.setState({ images: old });
             })
             .catch((error) => {
                 console.log(error);

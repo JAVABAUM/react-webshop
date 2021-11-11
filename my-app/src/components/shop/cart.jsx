@@ -11,6 +11,7 @@ class Cart extends Component {
         this.state = {thing: 'thing'};
     }
     componentDidMount() {
+        console.log(ecomCart);
     }
     resetCart() {
         window.location.reload();

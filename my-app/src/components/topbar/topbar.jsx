@@ -107,4 +107,3 @@ function firebaseLogout() {
 onAuthStateChanged(auth, (user) => {
     getmail();
 });
-

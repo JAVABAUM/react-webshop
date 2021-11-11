@@ -4,6 +4,7 @@ import Shop from "./components/shop/shop";
 import Product from "./components/shop/product";
 import Cart from "./components/shop/cart";
 import About from "./components/about/about";
+import Checkout from "./components/shop/checkout";
 import Notfound from "./components/main/notfound";
 import Filter from "./filter";
 import "./css/topbar.css";
@@ -20,6 +21,7 @@ function App() {
       <Route path="/product/:title" component={Product} />
       <Filter path="/cart" exact component={Cart} />
       <Route path="/about" exact component={About} />
+      <Filter path="/checkout" exact component={Checkout} />
     </Router>
   );
 }
